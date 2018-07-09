@@ -1,0 +1,152 @@
+<!DOCTYPE html >
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <base href="/"/>
+    <title>Stackoverfloo.Головна.</title>
+    <meta charset="utf-8" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--My style CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
+    <!--Font Awesome's Free CDN-->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+
+</head>
+<body ng-app="restAppUI" ng-cloak class="ng-cloak">
+
+<div class="container " ng-controller="LoginController">
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded-bottom">
+        <a class="navbar-brand text-light col-md-2" href="/">Stackoverfl<span style="color: red">oo</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse col-md-10 float-right" id="navbarSupportedContent">
+            <div class="row">
+                <div class="col-md-10">
+                    <ul class="navbar-nav mr-auto font-weight-bold col-md-8">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Головна</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/topics">Список тем</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Мій профіль</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--<div class="text-right">-->
+                <!--"{{currentUser}}"-->
+                <!--</div>-->
+
+                <!--<button type="button" class="btn btn-outline-light mgBtnLeft" th:action="@{/ask}">+ Запитати!</button>-->
+
+                <div class="btn-group float-right col-md-2">
+                     <!--ng-show="authenticated">-->
+                    <a class="btn btn-outline-light my-2 my-sm-0" href="/topics/new">+Запитати!</a>
+                    <div class="col-1"></div>
+                    <div class="my-auto"> "{{currentUser}}"</div>
+                    <form class="form-inline my-2 my-lg-0" method="post" action="/logout">
+                        <!--<input class="form-control mr-sm-2" type="search" placeholder="Пошук" aria-label="Search">-->
+                        <button class="btn btn-outline-light my-2 my-sm-0"
+                                type="submit" value="Logout" ng-click="logout()">Вихід</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--/.Navbar-->
+
+    <div class="row ">
+        <div class="page-wrap" id="page-wrap">
+            <div class="container">
+                <div class="page-content">
+                    <div class="wrapper">
+                        <!--NG-VIEW-->
+                        <ng-view>
+
+                        </ng-view>
+
+
+                        <div class="container unauthenticated">
+                            With Facebook: <a href="/login">click here</a>
+                        </div>
+                        <div class="container authenticated" style="display:none">
+                            Logged in as: <span id="user"></span>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container unauthenticated">
+    With Facebook: <a href="/login">click here</a>
+</div>
+<div class="container authenticated" style="display:none">
+    Logged in as: <span id="user"></span>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<!--src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<!--<script type="text/javascript" src="webjars/popper.js/1.14.3/dist/popper.min.js"></script>-->
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"-->
+
+<script type="text/javascript" src="webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<!--src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"-->
+
+<!--AngularJS-->
+<script type="text/javascript" src="webjars/angularjs/1.7.0/angular.min.js"></script>
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.10/angular.min.js"-->
+
+<script type="text/javascript" src="webjars/angularjs/1.7.0/angular-route.min.js"></script>
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.10/angular-route.min.js"-->
+
+<!--My angularjs scripts-->
+<script type="text/javascript" src="/js/app/_app.module.js"></script>
+<script type="text/javascript" src="/js/app/controllers/_controllers.module.js"></script>
+<script type="text/javascript" src="/js/app/controllers/LoginController.js"></script>
+<script type="text/javascript" src="/js/app/controllers/NewTopicController.js"></script>
+<script type="text/javascript" src="/js/app/controllers/RecentTopicsController.js"></script>
+<script type="text/javascript" src="/js/app/controllers/TopicsListController.js"></script>
+<script type="text/javascript" src="/js/app/controllers/TopicViewController.js"></script>
+<script type="text/javascript" src="/js/app/controllers/UsersListController.js"></script>
+<script type="text/javascript" src="/js/app/controllers/UserViewController.js"></script>
+<script type="text/javascript" src="/js/app/services/_services.module.js"></script>
+<script type="text/javascript" src="/js/app/services/MessagesService.js"></script>
+<script type="text/javascript" src="/js/app/services/UsersService.js"></script>
+<script type="text/javascript" src="/js/app/services/TopicsService.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html >
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <base href="/"/>
+    <title>Stackoverfloo.</title>
+    <meta charset="utf-8" content="text/html">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--My style CSS-->
+    <link rel="stylesheet" type="text/css" href="css/signin.css">
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.1.1/css/bootstrap.min.css">
+
+</head>
+
+<body class="text-center" style="background-color: #e4f1ff" ng-app="restAppUI">
+
+<div class="login-container" >
+    <form method="post"
+          class="form-signin-login" ng-controller="LoginController">
+    <img class="mb-4 rounded img-thumbnail border-primary" src="/img/logo3.jpg">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="username" class="sr-only" >Email address</label>
+    <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus
+           ng-model="data.username">
+    <label for="password" class="sr-only" >Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required
+           ng-model="data.username">
+    <!--<div class="checkbox mb-3">-->
+        <!--<label>-->
+            <!--<input type="checkbox" value="remember-me"> Remember me-->
+        <!--</label>-->
+    <!--</div>-->
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+</form></div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<!--src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<!--<script type="text/javascript" src="webjars/popper.js/1.14.3/dist/popper.min.js"></script>-->
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"-->
+
+<script type="text/javascript" src="webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<!--src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"-->
+
+<!--AngularJS-->
+<script type="text/javascript" src="webjars/angularjs/1.7.0/angular.min.js"></script>
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.10/angular.min.js"-->
+
+<script type="text/javascript" src="webjars/angularjs/1.7.0/angular-route.min.js"></script>
+<!--src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.10/angular-route.min.js"-->
+
+<!--My angularjs scripts-->
+<script type="text/javascript" src="/js/app/_app.module.js"></script>
+
+
+</body>
+</html>

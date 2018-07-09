@@ -1,0 +1,80 @@
+<ol class="breadcrumb">
+    <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+    <li class="active">Stories</li>
+</ol>
+
+<div class="row" data-ng-controller="StoriesController">
+    <div class="col-md-8">
+        <h4>Stories</h4>
+        <div class="card">
+            <div class="card-body">
+                <p class="text-justify">
+                    “Завдання: Написати копію stackoverflow в якому є підтримка:
+
+                    -Реєстрації юзерів
+                    -Ролі у юзерів(юзер, адмін, модератор)
+                    -Юзери можуть:
+                    --Створювати запитання
+                    --Редагувати вої вже створені запитанняҐ
+                    --Відповідати та коментувати чужі запитання
+                    --Реєструватись
+                    --Логінитись
+
+                    Реалізовано все має бути на Spring boot2
+                    Захист додатка має бути з використанням OAUTH2.
+                    База данних для сайту має бути Postgres
+
+                    Для сервісу потрібно написати хочаб самий простий інтерфейс на HTML/CSS та логіку роботи прописати в
+                    JS файлах
+                    На HTML/CSS та JS можна приділяти не багато уваги так як це не основне.
+
+                    Основне написати Rest сервіс який приймяє JSON запити та видає JSON відповіді.
+                    Переходячи на URL (на локальній машині localhost:port) ми повинні потрапити на головну сторінку на
+                    якій можемо
+                    зареєструватись або залогінитись, далі коритсувач може переглядати запитання інших користувачів або
+                    створити свій.
+                    Оцінювати запитання можуть тільки ті в кого є роль модератора(оцінювати можна +1 або -1 до рейтингу
+                    як у
+                    оригінальному stackoverflow). Користувач який створив запитання має можливіть обрати найкращу
+                    відповідь.
+
+                    Адмінка це окрема сторінка на яку можуть логінитись лише адміни, вони можуть перегланути список
+                    користувачів та
+                    забанити або розбанити користувачів що б ті втратили можливість користуватись сайтом або віднивили
+                    відповідно.”
+                </p>
+            </div>
+        </div>
+        <div class="white-background" style="padding:15px;">
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Developer</th>
+                    <th>State</th>
+                    <th class="text-center">Point V.</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="storyItem in stories" ng-class="(storyItem.id == currentStory.id) ? 'warning' : ''">
+                    <td>{{storyItem.id}}</td>
+                    <td width="25%"><a ng-href="#/story/{{storyItem.id}}">{{ storyItem.title }}</a></td>
+                    <td>
+                        <span ng-if="storyItem.developerId"
+                              ng-repeat="developer in developers | filter:{'id':storyItem.developerId}:true"> {{ developer.name }} </span>
+                        <span ng-if="!storyItem.developerId" style="color:#a00"> Not Assigned </span>
+                    </td>
+                    <td>{{ statuses[storyItem.status] }}</td>
+                    <td class="text-center">{{ storyItem.point }}</td>
+                    <td width="5%" style="text-align:center;">
+                        <a class="btn btn-xs btn-success" ng-click="selectStory(storyItem)"><i
+                                class="fa fa-pencil-square-o "></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

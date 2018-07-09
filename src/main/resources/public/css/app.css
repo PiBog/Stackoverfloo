@@ -1,0 +1,89 @@
+/*!
+ * CSS: my stylesheet
+ */
+
+:root {
+
+}
+
+h1 {
+    color: black;
+}
+
+.blackLink {
+    color: black;
+}
+
+.col {
+    border: 1px solid transparent;
+}
+
+.marginFromNav {
+    margin-top: 65px;
+}
+
+.marginTop {
+    margin-top: 5px;
+}
+
+.marginBottom {
+    margin-bottom: 5px;
+}
+
+.mgBtnLeft {
+    margin-left: 10px;
+}
+
+.microText {
+    font-size: 75%;
+    font-style: initial;
+}
+
+@media (min-width: 768px) {
+    .field-label-responsive {
+        padding-top: .5rem;
+        text-align: right;
+    }
+}
+
+/*Login view*/
+
+.login-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #e4f1ff;
+}
+
+.form-signin-login {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-signi-login .checkbox {
+    font-weight: 400;
+}
+.form-signin-login .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin-login .form-control:focus {
+    z-index: 2;
+}
+.form-signin-login input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin-login input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

@@ -1,0 +1,42 @@
+<div class="container marginTop breadcrumb" ng-controller="TopicsListController">
+
+    <div class="row" >
+        <div class="row text">
+            <div class="col">
+                <a href="/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i></a>
+            </div>
+            <div class="col text-center">
+                Теми
+            </div>
+            <div class="col">
+                <a href="" class="nav-link" ng-click="refreshTopics()"><i class="fa fa-sync" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="white-background" style="padding:15px;">
+            <div class="card-deck-wrapper">
+                <div class="card-deck">
+                    <div class="card text-center marginTop col-lg-12" style="width: 18rem;"
+                         ng-repeat="topic in topicsList | orderBy : topic.createDate">
+                        <div class="card-header microText">
+                            Створено:<br>{{topic.createDate | date}}
+                        </div>
+
+                        <div class="card-block">
+                            <h4 class="card-title">{{topic.topicName}}</h4>
+                            <p class="card-text">{{message}}</p>
+                            <a href="/topics/{{topic.topicId}}" class="btn btn-primary"
+                               ng-click="topicDetail(topic.topicId)">Перейти...</a>
+                        </div>
+                        <div class="card-footer text-muted microText">
+                            Редаговано:<br>{{topic.updateDate | date}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

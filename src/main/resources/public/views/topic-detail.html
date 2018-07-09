@@ -1,0 +1,61 @@
+<div data-ng-controller="TopicsController">
+    <div class="row" >
+        <div class="row text">
+            <div class="col">
+                <a href="/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i></a>
+            </div>
+            <div class="col text-center">
+                {{currentTopic.topicId}}
+            </div>
+            <div class="col">
+                <a href="" class="nav-link" ng-click="refreshCurentTopic(currentTopic.topicId)"><i class="fa fa-sync" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron-fluid bg-info">{{currentTopic.topicName}}</div>
+
+	<div stype="margin:20px;">
+	  <div class="col-md-7 white-background">
+	    <h3>{{currentTopic.title}}</h3>
+	    <p>{{currentTopic.description}}</p>
+	  </div>
+	  
+	  <div class="col-md-1">&nbsp;</div>
+	  <div class="col-md-4 white-background">
+      <div class="row">
+        <table class="table">
+          <tr>
+            <td>Issue-ID</td>
+            <td>{{ detailBug.id }}</td>
+          </tr>
+          
+          <tr>
+            <td>Assignee</td>
+            <td>
+              <span ng-if="detailBug.developerId" ng-repeat="developer in developers | filter:{'id':detailBug.developerId}">{{ developer.name }}</span>
+              <span ng-if="!detailBug.developerId" style="color:#a00"> Not Assigned</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Priority</td>
+            <td>{{ priorities[detailBug.priority] }}</td>
+          </tr>
+
+          <tr>
+            <td>State</td>
+            <td>{{ statuses[detailBug.status] }}</td>
+          </tr>
+          
+          <tr>
+            <td>Created on</td>
+            <td>{{ detailBug.creationDate | date:"dd/MM/yyyy 'at' HH:mm:ss"  }}</td>
+          </tr>
+        </table>
+        
+      </div>
+      
+	  </div>
+	</div>
+</div>
